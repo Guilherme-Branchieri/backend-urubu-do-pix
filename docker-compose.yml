@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  urubu-do-pix-pg:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=urubudopix 
+      - POSTGRESQL_PASSWORD=urubudopix
+      - POSTGRESQL_DATABASE=urubudopix
