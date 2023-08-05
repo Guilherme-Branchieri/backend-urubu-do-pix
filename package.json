@@ -1,0 +1,37 @@
+{
+  "name": "test-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsup src --out-dir build",
+    "test": "vitest run src/use-cases",
+    "test:watch": "vitest src/use-cases",
+    "start": "node build/app.cjs",
+    "start:dev": "tsx --watch src/app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "2.1.0",
+    "eslint": "^8.46.0",
+    "tsup": "^7.1.0",
+    "typescript": "^5.1.6",
+    "vite-tsconfig-paths": "4.2.0",
+    "vitest": "0.33.0"
+  },
+  "dependencies": {
+    "@prisma/client": "5.0.0",
+    "@types/bcryptjs": "2.4.2",
+    "@types/express": "^4.17.17",
+    "@types/sqlite3": "3.1.8",
+    "bcryptjs": "2.4.3",
+    "dotenv": "16.3.1",
+    "express": "^4.18.2",
+    "prisma": "5.0.0",
+    "tsx": "^3.12.7",
+    "zod": "3.21.4"
+  }
+}
