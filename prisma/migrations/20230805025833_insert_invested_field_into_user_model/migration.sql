@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "users" ADD COLUMN     "invested" DOUBLE PRECISION NOT NULL DEFAULT 0;

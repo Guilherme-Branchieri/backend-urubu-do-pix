@@ -9,7 +9,7 @@
     "test": "vitest run src/use-cases",
     "test:watch": "vitest src/use-cases",
     "start": "node build/app.cjs",
-    "start:dev": "tsx --watch src/app.ts"
+    "start:dev": "tsx watch src/app.ts"
   },
   "keywords": [],
   "author": "",

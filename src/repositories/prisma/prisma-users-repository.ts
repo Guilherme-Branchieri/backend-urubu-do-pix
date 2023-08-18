@@ -4,6 +4,25 @@ import { prisma } from "@/lib/prisma";
 import { GetResult } from "@prisma/client/runtime/library";
 
 export class PrismaUsersRepository implements UsersRepository {
+    async depositToUser(userId: string, amount: number): Promise<number | null> {
+        const user = await prisma.user.findFirstOrThrow({ where: { id: userId } });
+        user.balance += amount;
+        try {
+            await prisma.user.update({
+                where: { id: userId },
+                data: { ...user },
+            })
+
+        } catch (error) {
+            console.error(error);
+        }
+
+        return amount
+
+    }
+    addUserInvestment(id: string, amount: number): Promise<number | null> {
+        throw new Error("Method not implemented.");
+    }
     async findById(id: string): Promise<User | null> {
         const user = await prisma.user.findFirstOrThrow({
             where: {
@@ -11,7 +30,7 @@ export class PrismaUsersRepository implements UsersRepository {
             }
         })
 
-        if(!user){
+        if (!user) {
             return null;
         }
 
@@ -24,7 +43,7 @@ export class PrismaUsersRepository implements UsersRepository {
         const user = await prisma.user.findFirst({
             where: { email }
         });
-        if(!user) {
+        if (!user) {
             return null
         }
         return user
@@ -36,4 +55,4 @@ export class PrismaUsersRepository implements UsersRepository {
 
         return user
     }
-    }
+}
